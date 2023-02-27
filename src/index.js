@@ -1,7 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import Button from "./components/Button";
-import { Cross, Circle } from "./components/icons";
 import "./index.css";
 
 function Square(props) {
@@ -61,7 +60,7 @@ class Game extends React.Component {
     if (calculateWinner(squares) || squares[i]) {
       return;
     }
-    squares[i] = this.state.xIsNext ? <Cross /> : <Circle />;
+    squares[i] = this.state.xIsNext ? "X" : "O";
     this.setState({
       history: history.concat([
         {
@@ -95,6 +94,7 @@ class Game extends React.Component {
     });
 
     let status;
+
     if (winner) {
       status = "Winner: " + winner;
     } else {
